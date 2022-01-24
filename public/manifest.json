@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Clock App",
+  "name": "MultiClock App",
   "icons": [
     {
       "src": "favicon.ico",

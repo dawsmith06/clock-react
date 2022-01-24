@@ -1,0 +1,140 @@
+body {
+    font-size: 1.6rem;
+    font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+    background-color: #0a1825;
+    -webkit-font-smoothing: antialiased;
+    height: 100%;
+    height: 100vh;
+    overflow: hidden;
+    color: #fff;
+    text-rendering: optimizeLegibility;
+}
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    object-fit: cover;
+    display: block;
+    animation: zooming 4s cubic-bezier(.6,0,.4,1) forwards;
+}
+.pointer{
+    cursor: pointer;
+}
+
+.background.blur {
+    filter: blur(30px);
+    opacity: 1!important;
+}
+.clock-tz{
+    line-height: 1.8;
+    font-size: 2vmax;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgb(10 24 37 / 35%);
+}
+.clock-time{
+    font-size:5vmax;
+    letter-spacing: -.02em;
+    font-weight:600;
+    line-height:.9;
+    display:flex;
+    justify-content:center;
+    position: relative;
+}
+.clock-hour{
+}
+.clock-seconds{
+    font-size: 16px;
+    padding-left: 8px;
+    padding-top: 10px;
+}
+.clock-ampm{
+    font-size: 3.5vmax;
+    padding-left: 11px;
+    padding-top: 13px;
+}
+.clock-dates{
+    display: block;
+    font-weight: 200;
+    text-shadow: 0 0 20px rgb(10 24 37 / 35%);
+    font-size: 1.5vmax;
+    font-weight: 600;
+}
+.delete-clock{
+    position: absolute;
+    left: 10%;
+    margin-top: 10px;
+    display: none;
+}
+.add-clock{
+    filter: brightness(0) invert(1);
+}
+.col{
+    min-width: 270px;
+}
+
+.timezones-list-container {
+    overflow-y: auto;
+    max-height: 70%;
+}   
+.timezones-list-container li {
+    color: #212529;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
+@keyframes zooming{
+    0%{
+        transform:scale(1) translateZ(0)
+    }to{
+        transform:scale(1.1) translateZ(0)
+    }
+}
+
+.deletion-mode #clocks-container .clock-item:nth-child(2n-1) {
+    animation-name: keyframes1;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 10%;
+    animation-duration: 0.5s;
+}
+
+.deletion-mode #clocks-container .clock-item:nth-child(2n-1) {
+    animation-name: keyframes2;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transform-origin: 30% 5%;
+    animation-duration: 0.5s;
+}
+.deletion-mode .delete-clock{
+    display: block;
+}
+.deletion-mode .clock-info, .deletion-mode #background{
+    pointer-events: none;
+}
+@keyframes keyframes1 {
+    0% {
+    transform: rotate(-1deg);
+    animation-timing-function: ease-in;
+    }
+
+    50% {
+        transform: rotate(1.5deg);
+        animation-timing-function: ease-out;
+    }
+}
+
+@keyframes keyframes2 {
+    0% {
+        transform: rotate(1deg);
+        animation-timing-function: ease-in;
+    }
+
+    50% {
+        transform: rotate(-1.5deg);
+        animation-timing-function: ease-out;
+    }
+}
